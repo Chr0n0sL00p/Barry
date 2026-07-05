@@ -19,13 +19,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NFPet">
+        android:theme="@style/Theme.Barry">
         
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.NFPet"
+            android:theme="@style/Theme.Barry"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,14 +37,14 @@
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="nfpet" android:host="profile" />
+                <data android:scheme="barry" android:host="profile" />
             </intent-filter>
         </activity>
 
         <!-- FileProvider for camera captures -->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.nfpet.fileprovider"
+            android:authorities="com.example.barry.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

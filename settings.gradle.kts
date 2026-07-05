@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NFPet"
+rootProject.name = "Barry"
 include(":app")
