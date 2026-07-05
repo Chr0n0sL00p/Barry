@@ -485,7 +485,7 @@ fun ReportScreen(
                         
                         Text(
                             text = if (selectedStatus == "LOST") {
-                                "Se ha notificado a toda la comunidad cercana en la ciudad de **$currentCity** mediante alerta push. ¡Esperamos que vuelva pronto!"
+                                "Se ha notificado a toda la comunidad cercana en la ciudad de $currentCity mediante alerta push. ¡Esperamos que vuelva pronto!"
                             } else {
                                 "Gracias por ayudar a devolver una mascota a su hogar. ¡Ya está publicada en el mapa de búsqueda!"
                             },

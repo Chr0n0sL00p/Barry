@@ -378,7 +378,7 @@ fun NfcScanSuccessView(
                     val lng = currentLongitude ?: -70.6693
                     
                     val mapsLink = "https://maps.google.com/?q=$lat,$lng"
-                    val message = "¡Hola! He encontrado a tu mascota **${pet.name}** utilizando el collar NFC y la app Barry. Mi ubicación de encuentro actual es: $mapsLink"
+                    val message = "¡Hola! He encontrado a tu mascota ${pet.name} utilizando el collar NFC y la app Barry. Mi ubicación de encuentro actual es: $mapsLink"
                     
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
                         data = Uri.parse("smsto:${pet.phoneNumber}")

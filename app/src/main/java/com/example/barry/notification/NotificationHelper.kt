@@ -73,14 +73,14 @@ class NotificationHelper(private val context: Context) {
 
         // Premium styling: BigTextStyle to show full description
         val bigTextStyle = NotificationCompat.BigTextStyle()
-            .bigText("Se ha reportado la pérdida de **$petName** en **$cityName**.\n\nDescripción:\n$petDescription")
+            .bigText("Se ha reportado la pérdida de $petName en $cityName.\n\nDescripción:\n$petDescription")
             .setBigContentTitle("🐾 ¡Alerta! Mascota perdida cerca de ti")
             .setSummaryText("Mascota Perdida")
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher) // Guaranteed to exist in Android templates
-            .setContentTitle("🐾 ¡Mascota perdida en $cityName!")
-            .setContentText("Buscan a $petName en tu zona. ¡Ayuda a encontrarle!")
+            .setContentTitle("🐾 ¡Mascota perdida!")
+            .setContentText("Buscan a $petName en $cityName. ¡Ayuda a encontrarle!")
             .setStyle(bigTextStyle)
             .setPriority(NotificationCompat.PRIORITY_HIGH) // Heads-up banner
             .setDefaults(NotificationCompat.DEFAULT_ALL)   // Sound, vibration, lights

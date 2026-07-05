@@ -30,6 +30,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.barry.data.model.PetReport
 import com.example.barry.nfc.NfcParser
 import com.example.barry.ui.BarryViewModel
@@ -61,6 +63,24 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BarryTheme {
+                // Request notification permission for simulated alerts (Android 13+)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                    val context = androidx.compose.ui.platform.LocalContext.current
+                    val notificationLauncher = rememberLauncherForActivityResult(
+                        contract = ActivityResultContracts.RequestPermission()
+                    ) { }
+                    
+                    LaunchedEffect(Unit) {
+                        if (androidx.core.content.ContextCompat.checkSelfPermission(
+                                context,
+                                android.Manifest.permission.POST_NOTIFICATIONS
+                            ) != android.content.pm.PackageManager.PERMISSION_GRANTED
+                        ) {
+                            notificationLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                        }
+                    }
+                }
+
                 var showSplash by rememberSaveable { mutableStateOf(true) }
                 
                 if (showSplash) {
